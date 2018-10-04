@@ -17,6 +17,8 @@ func add(c chan int) {
 		case <-t.C:
 			c = nil
 			fmt.Println(sum)
+			fmt.Println("add() ending...")
+			return
 		}
 	}
 }
@@ -25,6 +27,7 @@ func send(c chan int) {
 	for {
 		c <- rand.Intn(10)
 	}
+	fmt.Println("send() ending...")
 }
 
 func main() {
